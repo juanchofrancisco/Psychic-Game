@@ -64,3 +64,4 @@ else {
 	computerGuess.push(compGuess);
 	
 }
+}
