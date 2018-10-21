@@ -38,7 +38,8 @@ if ((playerGuess === computerGuess[0]) && (guessesLeft > 0)) {
 	guessesLeft = 9;
 	userLettersGuessed.length = 0;
 	computerGuess.length = 0;
-	var compGuess = computerChoices[Math.floor(Math.random() * 26)];
+    var compGuess = computerChoices[Math.floor(Math.random() * 26)];
+    document.getElementById("wins").innerHTML = wins;
 	computerGuess.push(compGuess);
 	
 }
@@ -46,7 +47,9 @@ if ((playerGuess === computerGuess[0]) && (guessesLeft > 0)) {
 // else, if player guess is not equal to the computer guess & guesses are greater than zero, then decrement from
 // guesses left
 else if ((playerGuess !== computerGuess[0]) && (guessesLeft > 0)) {
-	guessesLeft = guessesLeft-1;
+    guessesLeft = guessesLeft-1;
+    document.getElementById("guesses-left").innerHTML = guessesLeft;
+    document.getElementById("your-guesses").innerHTML = userLettersGuessed;
 }
 // alert you loose, add to losses and start over, restore variable values
 
@@ -56,17 +59,8 @@ else {
 	guessesLeft = 9;
 	userLettersGuessed.length = 0;
 	computerGuess.length = 0;
-	var compGuess = computerChoices[Math.floor(Math.random() * 26)];
+    var compGuess = computerChoices[Math.floor(Math.random() * 26)];
+    document.getElementById("your-losses").innerHTML = losses;
 	computerGuess.push(compGuess);
 	
-}
-// update html with 
-var html = "<h1>The Psychic Game</h1>" + "<p>Guess what letter I'm thinking of!</p>" +
-          "<p>Wins: " + wins + "</p>" +
-          "<p>Losses: " + losses + "</p>" +
-          "<p>Guesses left: " + guessesLeft + "</p>" +
-          "<p>Your guesses so far: " + userLettersGuessed + "</p>";
- 
-document.querySelector("#game").innerHTML = html;
-
 }
